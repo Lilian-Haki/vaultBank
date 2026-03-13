@@ -1,8 +1,14 @@
 import { Tabs } from "expo-router";
 import { Home, Wallet, CreditCard, User } from "lucide-react-native";
+import {
+    Home01Icon,
+    Wallet01Icon,
+    UserIcon,
+    CreditCardIcon,
+} from "@hugeicons/core-free-icons";
 import React from "react";
 import { View, StyleSheet } from "react-native";
-
+import { HugeiconsIcon } from "@hugeicons/react-native";
 import { Colors } from "../../constants/colors";
 
 function TabBarIcon({
@@ -52,12 +58,8 @@ export default function TabLayout() {
                 name="index"
                 options={{
                     title: "Home",
-                    tabBarIcon: ({ color, focused }) => (
-                        <TabBarIcon
-                            Icon={Home}
-                            color={color}
-                            focused={focused}
-                        />
+                    tabBarIcon: ({ color }) => (
+                        <HugeiconsIcon icon={Home01Icon} color={color} />
                     ),
                 }}
             />
@@ -65,12 +67,8 @@ export default function TabLayout() {
                 name="accounts"
                 options={{
                     title: "Accounts",
-                    tabBarIcon: ({ color, focused }) => (
-                        <TabBarIcon
-                            Icon={Wallet}
-                            color={color}
-                            focused={focused}
-                        />
+                    tabBarIcon: ({ color }) => (
+                        <HugeiconsIcon icon={Wallet01Icon} color={color} />
                     ),
                 }}
             />
@@ -78,12 +76,8 @@ export default function TabLayout() {
                 name="cards"
                 options={{
                     title: "Cards",
-                    tabBarIcon: ({ color, focused }) => (
-                        <TabBarIcon
-                            Icon={CreditCard}
-                            color={color}
-                            focused={focused}
-                        />
+                    tabBarIcon: ({ color }) => (
+                        <HugeiconsIcon color={color} icon={CreditCardIcon} />
                     ),
                 }}
             />
@@ -91,12 +85,8 @@ export default function TabLayout() {
                 name="profile"
                 options={{
                     title: "Profile",
-                    tabBarIcon: ({ color, focused }) => (
-                        <TabBarIcon
-                            Icon={User}
-                            color={color}
-                            focused={focused}
-                        />
+                    tabBarIcon: ({ color }) => (
+                        <HugeiconsIcon color={color} icon={UserIcon} />
                     ),
                 }}
             />

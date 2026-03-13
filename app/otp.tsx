@@ -78,7 +78,7 @@ export default function OTPScreen() {
     setCanResend(false);
     inputRefs.current[0]?.focus();
     
-    Alert.alert('Code Sent', 'A new verification code has been sent to your device');
+    Alert.alert('Code Sent', 'A new verification code has been sent to your phone number.Check your messages and enter the code to verify your account.');
   }, [canResend]);
 
   return (
@@ -105,7 +105,7 @@ export default function OTPScreen() {
               Verification Code
             </Text>
             <Text style={[styles.subtitle, { color: colors.textSecondary }]}>
-              Enter the 6-digit code sent to your registered device
+              Enter the 6-digit code sent to your phone number.
             </Text>
           </View>
 

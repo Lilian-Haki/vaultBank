@@ -21,6 +21,7 @@ export const Colors = {
         gradientEnd: "#059669",
         cardGradient: ["#1E1E26", "#141419"] as const,
         overlay: "rgba(0, 0, 0, 0.5)",
+        icons:"#2F5805"
     },
     light: {
         background: "#FFFFFF",
