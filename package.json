@@ -1,52 +1,56 @@
 {
-    "$schema": "https://www.schemastore.org/package.json",
-    "private": true,
-    "type": "module",
-    "scripts": {
-        "build": "vite build",
-        "dev": "vite"
+  "$schema": "https://www.schemastore.org/package.json",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite"
+  },
+  "expo": {
+    "name": "VaultBank",
+    "slug": "vaultbank",
+    "scheme": "vaultbank",
+    "android": {
+      "package": "com.anonymous.fintech"
     },
-    "expo": {
-        "name": "VaultBank",
-        "slug": "vaultbank",
-        "scheme": "vaultbank",
-        "android": {
-            "package": "com.anonymous.fintech"
-        },
-        "ios": {
-            "bundleIdentifier": "com.anonymous.fintech"
-        }
-    },
-    "devDependencies": {
-        "@tailwindcss/vite": "^4.0.0",
-        "@types/react": "^19.2.14",
-        "axios": "^1.11.0",
-        "babel-preset-expo": "^55.0.10",
-        "concurrently": "^9.0.1",
-        "laravel-vite-plugin": "^2.0.0",
-        "tailwindcss": "^3.4.19",
-        "typescript": "~5.9.2",
-        "vite": "^7.0.7"
-    },
-    "dependencies": {
-        "@hugeicons/core-free-icons": "^4.0.0",
-        "@hugeicons/react-native": "^1.0.13",
-        "@tanstack/react-query": "^5.90.21",
-        "expo": "^55.0.5",
-        "expo-constants": "~55.0.7",
-        "expo-linking": "~55.0.7",
-        "expo-router": "^55.0.4",
-        "expo-splash-screen": "^55.0.10",
-        "expo-status-bar": "^55.0.4",
-        "lucide-react-native": "^0.577.0",
-        "nativewind": "^4.2.2",
-        "react": "^19.2.0",
-        "react-native": "0.83.2",
-        "react-native-gesture-handler": "^2.30.0",
-        "react-native-safe-area-context": "~5.6.2",
-        "react-native-screens": "~4.23.0",
-        "root": "tanstack/react-query"
-    },
-    "name": "fintech",
-    "version": "1.0.0"
+    "ios": {
+      "bundleIdentifier": "com.anonymous.fintech"
+    }
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "@types/minimatch": "^5.1.2",
+    "@types/react": "^19.2.14",
+    "axios": "^1.11.0",
+    "babel-preset-expo": "^55.0.10",
+    "concurrently": "^9.0.1",
+    "expo-cli": "^6.3.12",
+    "laravel-vite-plugin": "^2.0.0",
+    "tailwindcss": "^3.4.19",
+    "typescript": "~5.9.2",
+    "vite": "^7.0.7"
+  },
+  "dependencies": {
+    "@hugeicons/core-free-icons": "^4.0.0",
+    "@hugeicons/react-native": "^1.0.13",
+    "@react-native-async-storage/async-storage": "^2.2.0",
+    "@tanstack/react-query": "^5.90.21",
+    "expo": "^55.0.5",
+    "expo-constants": "~55.0.7",
+    "expo-linking": "~55.0.7",
+    "expo-router": "^55.0.4",
+    "expo-splash-screen": "^55.0.10",
+    "expo-status-bar": "^55.0.4",
+    "i18n-js": "^4.5.3",
+    "lucide-react-native": "^0.577.0",
+    "nativewind": "^4.2.2",
+    "react": "^19.2.0",
+    "react-native": "0.83.2",
+    "react-native-gesture-handler": "^2.30.0",
+    "react-native-safe-area-context": "~5.6.2",
+    "react-native-screens": "~4.23.0",
+    "root": "tanstack/react-query"
+  },
+  "name": "fintech",
+  "version": "1.0.0"
 }

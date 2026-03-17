@@ -9,13 +9,21 @@ import { mockTransactions } from '../constants/mockData';
 export default function TransactionDetailsScreen() {
   const router = useRouter();
   const { colors } = useTheme();
-  
-  // Get transaction from mock data (in real app, fetch by ID)
-  const transaction = mockTransactions[0];
-  const isIncome = transaction.type === 'income';
+  const { id } = useLocalSearchParams<{ id: string }>();
+
+  const transaction = mockTransactions.find(tx => tx.id === id);
+  if (!transaction) {
+    return (
+      <SafeAreaView style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <Text>Transaction not found</Text>
+      </SafeAreaView>
+    );
+  }
+
+  const isIncome = transaction.type === "income";
 
   return (
-    <SafeAreaView style={[styles.container, { backgroundColor: colors.background }]} edges={['top']}>
+    <SafeAreaView style={[styles.container, { backgroundColor: colors.background }]} edges={["top"]}>
       {/* Header */}
       <View style={styles.header}>
         <Text style={[styles.headerTitle, { color: colors.text }]}>Transaction</Text>
@@ -38,15 +46,10 @@ export default function TransactionDetailsScreen() {
           <Text style={[styles.merchant, { color: colors.text }]}>{transaction.title}</Text>
           <Text style={[styles.category, { color: colors.textSecondary }]}>{transaction.category}</Text>
           <Text style={[styles.amount, { color: isIncome ? colors.success : colors.text }]}>
-            {isIncome ? '+' : '-'}{transaction.amount.toLocaleString('en-US', { 
-              style: 'currency', 
-              currency: 'USD' 
-            })}
+            {isIncome ? "+" : "-"}{transaction.amount.toLocaleString("en-US", { style: "currency", currency: "USD" })}
           </Text>
           <View style={[styles.statusBadge, { backgroundColor: isIncome ? `${colors.success}20` : `${colors.primary}20` }]}>
-            <Text style={[styles.statusText, { color: isIncome ? colors.success : colors.primary }]}>
-              Completed
-            </Text>
+            <Text style={[styles.statusText, { color: isIncome ? colors.success : colors.primary }]}>Completed</Text>
           </View>
         </View>
 
@@ -54,7 +57,7 @@ export default function TransactionDetailsScreen() {
         <View style={[styles.detailsCard, { backgroundColor: colors.surface }]}>
           <View style={styles.detailRow}>
             <Text style={[styles.detailLabel, { color: colors.textSecondary }]}>Transaction ID</Text>
-            <Text style={[styles.detailValue, { color: colors.text }]}>TXN{Date.now().toString().slice(-8)}</Text>
+            <Text style={[styles.detailValue, { color: colors.text }]}>{transaction.id}</Text>
           </View>
           <View style={[styles.detailRow, { borderTopColor: colors.border }]}>
             <Text style={[styles.detailLabel, { color: colors.textSecondary }]}>Date & Time</Text>
@@ -62,7 +65,7 @@ export default function TransactionDetailsScreen() {
           </View>
           <View style={[styles.detailRow, { borderTopColor: colors.border }]}>
             <Text style={[styles.detailLabel, { color: colors.textSecondary }]}>Payment Method</Text>
-            <Text style={[styles.detailValue, { color: colors.text }]}>Visa •••• 4582</Text>
+            <Text style={[styles.detailValue, { color: colors.text }]}>{transaction.type === "income" ? "Bank Deposit" : "Visa •••• 4582"}</Text>
           </View>
           <View style={[styles.detailRow, { borderTopColor: colors.border }]}>
             <Text style={[styles.detailLabel, { color: colors.textSecondary }]}>Description</Text>
